@@ -31,3 +31,4 @@ from django.conf.urls.static import static
 from . import settings
 urlpatterns += static(settings.MEDIA_URL,   # /media
                     document_root=settings.MEDIA_ROOT)  # BASE_DIR/_media저장
+

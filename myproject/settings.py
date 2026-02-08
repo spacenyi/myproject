@@ -33,13 +33,13 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY", "scretkey")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['192.168.0.52', '127.0.0.1']
 # "192.168.0.52,127.0.0.1" => ['192.168.0.52', '127.0.0.1']
 # python manage.py runserver 192.168.0.52:80로 서버 실행
-#ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default="127.0.0.1").split(',')
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default="127.0.0.1").split(',')
+#ALLOWED_HOSTS = ['*']
 # print(ALLOWED_HOSTS)
 
 # Application definition
@@ -67,6 +67,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "myproject.urls"

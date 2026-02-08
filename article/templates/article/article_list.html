@@ -3,6 +3,7 @@
 {% block title %}article List{% endblock %}
 
 {% block content %}
+  {%load static%}
   <form>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="검색할 제목" name="q" value="{{request.GET.q}}">
@@ -13,7 +14,7 @@
     <li>
         {{article.id}}.{{article.title}} / {{article.status}}
         {% if article.photo %}
-          <img src="/static/article/fileup.jpg" style="width:20px">
+          <img src="{% static 'article/fileup.jpg'%}" style="width:20px">
         {% endif %}
         <a href="{% url 'article:detail' article.id %}">[상세]</a>
         <a href="{% url 'article:edit' article.id %}">[수정]</a>
